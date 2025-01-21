@@ -15,7 +15,10 @@ public class GreatestCommonDivisor {
     int numberTwo = 576;
     int gcd = greatestCommonDivisor(numberOne, numberTwo);
 
-    logger.log(Level.INFO, "GREATEST COMMON DIVISOR: {0}  :::", gcd);
+    logger.log(Level.INFO, "GREATEST COMMON DIVISOR #1: {0}  :::", gcd);
+    gcd = greatestCommonDivisorOne(numberOne, numberTwo);
+
+    logger.log(Level.INFO, "GREATEST COMMON DIVISOR #2: {0}  :::", gcd);
     logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
 
@@ -24,5 +27,18 @@ public class GreatestCommonDivisor {
     if (numberTwo == 0) return numberOne;
 
     return greatestCommonDivisor(numberTwo, numberOne % numberTwo);
+  }
+
+  private static int greatestCommonDivisorOne(int numberOne, int numberTwo) {
+
+    for (int i = numberTwo; i > 0; i--) {
+
+      if (numberOne % i == 0 && numberTwo % i == 0) {
+        return i;
+      }
+
+    }
+
+    return 1;
   }
 }

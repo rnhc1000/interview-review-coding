@@ -37,13 +37,24 @@ public class NumberOfVowels {
 
   private static int getVowels(String string) {
 
+//    string = string.toLowerCase();
     Map<Character, Integer> map = Map.ofEntries(
         Map.entry('a',65),
+        Map.entry('A',65),
+
         Map.entry('e',69),
+        Map.entry('E',65),
+
         Map.entry('i',73),
+        Map.entry('I',65),
+
         Map.entry('o',79),
-        Map.entry('u',85)
-    );
+        Map.entry('O',65),
+
+        Map.entry('u',85),
+        Map.entry('U',65)
+
+        );
     logger.log(Level.INFO, "Map of characters {0}", map);
 
     int count = 0;

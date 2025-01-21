@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class Fibonacci {
 
   // 0 1 1 2 3 5 8 13 21 34
-  private static final Logger logger = Logger.getLogger(DigitsSum.class.getName());
+  private static final Logger logger = Logger.getLogger(Fibonacci.class.getName());
 
   public static void main(String[] args) {
 
@@ -17,8 +17,7 @@ public class Fibonacci {
     int number = 12;
     int[] series = generateFibonacci(number);
 
-    logger.log(Level.INFO, "SUM OF ALL DIGITS: {0}  :::", Arrays.toString(series));
-    logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
+    logger.log(Level.INFO, "FIBONACCI: {0}  :::", Arrays.toString(series));
 
     List<Integer> list = new ArrayList<>();
 
@@ -32,6 +31,7 @@ public class Fibonacci {
     List<Integer> result = list.stream().sorted().toList();
 
     logger.log(Level.INFO, "RECURSIVE FIBONACCI : {0}  :::", result);
+    logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
 
   private static int[] generateFibonacci(int number) {
