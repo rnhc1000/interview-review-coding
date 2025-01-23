@@ -1,13 +1,13 @@
 package br.dev.ferreiras.challenges;
 
-public class Main {
+public class DeckOfCardsTorc {
   public static void main(String[] args) {
-    System.out.println(ArrayChallenge(new String[] {"two", "three", "ace", "king"})); // Output: "below king"
-    System.out.println(ArrayChallenge(new String[] {"ace", "queen"}));        // Output: "above king"
-    System.out.println(ArrayChallenge(new String[] {"four", "ace", "ten"}));         // Output: "below ten"
+    System.out.println(arrayChallenge(new String[] {"two", "three", "ace", "king"})); // Output: "below king"
+    System.out.println(arrayChallenge(new String[] {"ace", "queen"}));        // Output: "above king"
+    System.out.println(arrayChallenge(new String[] {"four", "ace", "ten"}));         // Output: "below ten"
   }
 
-  public static String ArrayChallenge(String[] strArr) {
+  public static String arrayChallenge(String[] strArr) {
     // Define card values
     java.util.Map<String, Integer> cardValues = new java.util.HashMap<>();
     cardValues.put("two", 2);
