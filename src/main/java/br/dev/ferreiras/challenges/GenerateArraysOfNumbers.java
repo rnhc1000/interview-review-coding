@@ -1,6 +1,8 @@
 package br.dev.ferreiras.challenges;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GenerateArraysOfNumbers {
@@ -70,5 +72,21 @@ public class GenerateArraysOfNumbers {
     }
 
     return Arrays.stream(numbers).distinct().toArray();
+  }
+
+  public static int[] generateUniqueArraysOfPairs(int size) {
+
+    Random random = new Random();
+    int len = random.nextInt(size);
+    int[] numbers = new int[len];
+
+    List<Integer> list = new ArrayList<>();
+    for (int i = 0; i < numbers.length; i+=2                                                                                                                               ) {
+      list.add(random.nextInt(size));
+      list.add(random.nextInt(size));
+    }
+
+    System.out.println(list);
+    return list.stream().mapToInt(x -> x).toArray();
   }
 }
