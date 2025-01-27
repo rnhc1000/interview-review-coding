@@ -24,10 +24,17 @@ public class Palindrome {
     int left  = 0;
     char[] ch = string.toCharArray();
 
-    for (; left < ch.length ; left++) {
-      if(ch[right] != ch[left]) return false;
+    for (int i = 0; i < string.length(); i++) {
+      if(string.charAt(i) != string.charAt(right)) return false;
       right--;
     }
+
     return true;
+//
+//    for (; left < ch.length ; left++) {
+//      if(ch[right] != ch[left]) return false;
+//      right--;
+//    }
+//    return true;
   }
 }

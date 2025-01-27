@@ -48,13 +48,12 @@ public class PassingCars {
       prefixSum[i+1] = prefixSum[i] + cars[i];
     }
 
-
     for (int i = 0; i < size; i++) {
       if(cars[i] == 0) {
         passingCars += carsWest - prefixSum[i];
       }
     }
+
     return passingCars;
   }
-
 }
