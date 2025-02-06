@@ -48,7 +48,7 @@ public class NQueens {
 
   public static void main(String[] args) {
     NQueens queen = new NQueens();
-    int n = 4; // Change this value to test different sizes of the board
+    int n = 8; // Change this value to test different sizes of the board
     List<List<int[]>> results = queen.solveNQueens(n);
     for (List<int[]> result : results) {
       System.out.print("[");

@@ -36,20 +36,30 @@ public class CamelCase {
   private static String camelCase(String string) {
 
     String regex = "[-_]";
-    StringBuilder sb = new StringBuilder(string);
+    int index = 0;
+    StringBuilder sb = new StringBuilder();
     for (char ch : string.toCharArray()) {
 
       if (ch == '-' || ch == '_') {
-        int index = string.indexOf(ch);
+        index = string.indexOf(ch);
         logger.log(Level.INFO, "::: UNDERSCORE OR DASH: {0}", index);
 
       }
-    }
-    logger.log(Level.INFO, "::: REMOVE UNDERSCORE OR DASH: {0}", sb.toString());
-    String[] strings = string.split(regex);
+//      string.
+//      sb.append(ch);
+      if (index != 0) {
 
-   for (String s : strings) {
-     sb.append(s);
+        sb.deleteCharAt(index);
+//        sb.append(cx);
+      }
+      index = 0;
+    }
+    logger.log(Level.INFO, "::: REMOVE UNDERSCORE OR DASH: {0}", sb);
+    String[] strings = string.split(regex);
+    sb.append(strings[0]);
+    for (int i = 1; i < strings.length; i++) {
+      char cx = Character.toUpperCase(strings[i].charAt(index+1));
+//      sb.append(s);
 
     }
 
@@ -59,3 +69,4 @@ public class CamelCase {
     return null;
   }
 }
+;
