@@ -120,12 +120,9 @@ sum=prefix[j+1]−prefix[i]
     int max = Integer.MIN_VALUE;
 
     for (int i=0; i <= size -target; i++) {
-
       int currentSum = prefix[i + target] - prefix[i];
-
       max = Math.max(max, currentSum);
     }
-
 
     return max == Integer.MIN_VALUE ? 0 : max;
   }

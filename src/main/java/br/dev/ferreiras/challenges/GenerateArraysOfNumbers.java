@@ -66,9 +66,15 @@ public class GenerateArraysOfNumbers {
     Random random = new Random();
     int len = random.nextInt(size);
     int[] numbers = new int[len];
-
     for (int i = 0; i < numbers.length; i++) {
       numbers[i] = random.nextInt(size);
+    }
+    int numSize = numbers.length;
+    for (int i = numSize - 1; i > 0; i--) {
+      int j = random.nextInt(numSize -1);
+      numbers[i] ^= numbers[j];
+      numbers[j] ^= numbers[i];
+      numbers[i] ^= numbers[j];
     }
 
     return Arrays.stream(numbers).distinct().toArray();
@@ -81,7 +87,7 @@ public class GenerateArraysOfNumbers {
     int[] numbers = new int[len];
 
     List<Integer> list = new ArrayList<>();
-    for (int i = 0; i < numbers.length; i+=2                                                                                                                               ) {
+    for (int i = 0; i < numbers.length; i += 2) {
       list.add(random.nextInt(size));
       list.add(random.nextInt(size));
     }
