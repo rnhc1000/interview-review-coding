@@ -11,7 +11,7 @@ public class SHA256 {
 
   private static final Logger logger = Logger.getLogger(SHA256.class.getName());
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws RuntimeException, NoSuchAlgorithmException {
 
     Scanner scanner = new Scanner(System.in);
     System.out.print("Input a word: ");
@@ -21,18 +21,18 @@ public class SHA256 {
       MessageDigest digest = MessageDigest.getInstance("SHA-256");
       byte[] encodedHash = (digest.digest(input.getBytes(StandardCharsets.UTF_8)));
       logger.log(Level.INFO, "::: ORIGINAL STRING: {0} :::", scanner);
-      logger.log(Level.INFO, "::: SHA256: {0} :::", bytesTohex(encodedHash));
-    } catch (NoSuchAlgorithmException e) {
-      e.getMessage();
+      logger.log(Level.INFO, "::: SHA256: {0} :::", bytesToHex(encodedHash));
+    } catch (RuntimeException e) {
+      throw new NoSuchAlgorithmException(e.getMessage());
     } finally {
       scanner.close();
     }
   }
 
-  private static String bytesTohex(byte[] hash) {
+  private static String bytesToHex(byte[] hash) {
     StringBuilder string = new StringBuilder(2 * hash.length);
-    for (int i = 0; i < hash.length; i++) {
-      String hex = Integer.toHexString(0xFF & hash[i]);
+    for (byte b : hash) {
+      String hex = Integer.toHexString(0xFF & b);
       if (hex.length() == 1) string.append('0');
       string.append(hex);
     }

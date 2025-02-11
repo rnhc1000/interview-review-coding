@@ -10,26 +10,27 @@ public class CheckIfNumberIsPrime {
 
   public static void main(String[] args) {
     long start = System.nanoTime();
-    long number = 132L;
+    long number = 133L;
     boolean isPrime = checkIfNumberIsPrime(number);
 
-    logger.log(Level.INFO, "IS PRIME?: {0}  :::", isPrime);
-    logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
-  }
+  logger.log(Level.INFO, "NUMBER IS PRIME?: {0}  :::", isPrime);
+  logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
+}
 
-  private static boolean checkIfNumberIsPrime(long number) {
+private static boolean checkIfNumberIsPrime(long number) {
 
-    /*
-    Math condition to a number be considered prime
-    divisible only by one and itself
-    1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37
+  /*
+  Math condition to a number be considered prime
+  divisible only by one and itself
+  1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37
 
-    instead of checking till n, we can check till √n because a larger factor of n must
-    be a multiple of a smaller factor that has been already checked.
-    */
-    if (number <= 1) return false;
+  instead of checking till n, we can check till √n because a larger factor of n must
+  be a multiple of a smaller factor that has been already checked.
+  */
+  if (number <= 1) return false;
+  logger.log(Level.INFO, "MATH.SQRT(NUMBER): {0}  :::", (int)Math.sqrt(number));
 
-    for (int i = 2; i < Math.sqrt(number); i++) {
+  for (int i = 2; i < (int)Math.sqrt(number); i++) {
 
       if (number % i == 0) {
         return false;
