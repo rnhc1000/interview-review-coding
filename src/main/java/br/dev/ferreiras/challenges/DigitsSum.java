@@ -61,7 +61,7 @@ sum of its digits (a + b + c + d) is divided by 9.
     return number % 9;
   }
 
-  public static int digital_root(int n) {
+  public static int digitalRoot(int n) {
     return (1 + (n - 1) % 9);
   }
 }

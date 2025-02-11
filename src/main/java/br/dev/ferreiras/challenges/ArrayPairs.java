@@ -1,9 +1,6 @@
 package br.dev.ferreiras.challenges;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,8 +45,12 @@ public class ArrayPairs {
   public static void main(String[] args) {
 
     long start = System.nanoTime();
-    int[] numbers = GenerateArraysOfNumbers.generateUniqueArraysOfPairs(100);
+//    int[] numbers = GenerateArraysOfNumbers.generateUniqueArraysOfPairs(100);
+    int[] numbers = { 9, 7, 9, 3, 9, 3 , 9};
     int response = unpaired(numbers);
+
+    logger.log(Level.INFO, "::: NUMBERS: {0} ::::", Arrays.toString(numbers));
+
     logger.log(Level.INFO, "::: UNPAIRED: {0} ::::", response);
     logger.log(Level.WARNING, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
@@ -84,6 +85,9 @@ public class ArrayPairs {
 
     for(int number : numbers) {
       unpaired = unpaired  ^ number;
+      logger.log(Level.INFO, "::: UNPAIRED(F): {0} ::::", unpaired);
+
+
     }
 
     return unpaired;
