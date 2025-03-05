@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 
 public class AverageOfAllElements {
@@ -14,10 +15,13 @@ public class AverageOfAllElements {
 
     int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    int average = averageElements(numbers);
+    int average = averageElement(numbers);
 
     logger.log(Level.INFO, "::: average: -> {0} :::", average);
+    average = averageElements(numbers);
+    logger.log(Level.INFO, "::: average: -> {0} :::", average);
     logger.log(Level.WARNING, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start)/ 1_000_000);
+
 
   }
 
@@ -33,8 +37,9 @@ public class AverageOfAllElements {
     return sum / size;
   }
 
-  private static int averageElement(List<Integer> numbers) {
+  private static int averageElement(int[] numbers) {
 
-    return numbers.stream().mapToInt(x -> x).sum() / numbers.size();
+    return Arrays.stream(numbers)
+        .map(x -> x).sum();
   }
 }
