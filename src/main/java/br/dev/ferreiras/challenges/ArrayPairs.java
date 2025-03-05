@@ -86,8 +86,6 @@ public class ArrayPairs {
     for(int number : numbers) {
       unpaired = unpaired  ^ number;
       logger.log(Level.INFO, "::: UNPAIRED(F): {0} ::::", unpaired);
-
-
     }
 
     return unpaired;
