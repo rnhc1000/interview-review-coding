@@ -1,6 +1,8 @@
 package br.dev.ferreiras.challenges;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 class Counter {
 
@@ -16,6 +18,7 @@ class Counter {
 }
 public class VirtualThreadsTwo {
 
+  public static final Logger logger = Logger.getLogger(VirtualThreadsTwo.class.getName());
   public static void main(String[] args) throws InterruptedException {
 
     var counter = new Counter();
@@ -23,25 +26,28 @@ public class VirtualThreadsTwo {
     var t1 = Thread.ofVirtual().unstarted(() -> {
 
       try {
-        Thread.sleep(5000);
+        Thread.sleep(1000);
       } catch (InterruptedException e) {
-        throw new RuntimeException(e);
+        Thread.currentThread().interrupt();
       }
       for (int i = 0; i < 10; i++) {
         counter.increment();
-        System.out.printf("%d ", counter.getCount());
+
+        logger.log(Level.INFO, "%d {0}", counter.getCount());
+
       }
     });
 
     var t2 = Thread.ofVirtual().unstarted(() -> {
       try {
-        Thread.sleep(10000);
+        Thread.sleep(1000);
       } catch (InterruptedException e) {
-        throw new RuntimeException(e);
+        Thread.currentThread().interrupt();
       }
       for (int i = 0; i < 10; i++) {
         counter.increment();
-        System.out.printf("%d ",counter.getCount());
+        logger.log(Level.INFO, " {0}", counter.getCount());
+
       }
     });
 
