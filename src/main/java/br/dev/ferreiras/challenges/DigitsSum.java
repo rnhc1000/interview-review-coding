@@ -12,7 +12,7 @@ public class DigitsSum {
     long start = System.nanoTime();
     int number = 123456789;
 
-    int sum = sumUp(number);
+    int sum = sumUpNine(number);
 
     logger.log(Level.INFO, "SUM OF ALL DIGITS: {0}  :::", sum);
     logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);

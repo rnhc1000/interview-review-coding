@@ -26,11 +26,12 @@ public class BinarySearch {
 
     int right = numbers.length - 1;
     int left = 0;
+    int middle = 0;
     Arrays.sort(numbers);
 
     while (left < right) {
 
-      int middle = left + (right - left) / 2;
+      middle = left + (right - left) / 2;
 
       if (numbers[middle] == number) {
 

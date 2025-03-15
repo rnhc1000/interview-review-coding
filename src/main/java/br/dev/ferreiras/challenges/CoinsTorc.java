@@ -39,7 +39,6 @@ public class CoinsTorc {
     }
 
     // varFiltersCg is the minimum number of coins needed for the input num
-    int varFiltersCg = dp[num];
-    return varFiltersCg;
+      return dp[num];
   }
 }
