@@ -46,7 +46,7 @@ public class PrefixSum {
     int max = targetSum(numbers, k);
     logger.log(Level.INFO, "::: MINIMUM VALUE: {0} ::::", result);
     logger.log(Level.INFO, "::: NUMBERS: {0} :::", Arrays.toString(numbers));
-    logger.log(Level.INFO, "::: PREFIXSUM OF NUMBERS: {0} :::", Arrays.toString(prefix));
+    logger.log(Level.INFO, "::: PREFIX SUM OF NUMBERS: {0} :::", Arrays.toString(prefix));
     logger.log(Level.INFO, "::: MAX: {0} :::", max);
     logger.log(Level.INFO, "::: TARGET: {0} :::", k);
 
@@ -103,8 +103,9 @@ public class PrefixSum {
   }
 
   /*
-  Sum of Subarrays:
-  Once you have the prefix sum array, you can calculate the sum of any subarray between indexes i and j using the formula:
+  Sum of Sub arrays:
+  Once you have the prefix sum array, you can calculate the sum of any sub array between indexes i and j
+  using the formula:
   sum=prefix[j+1]−prefix[i]
    */
   public static int targetSum(int[] numbers, int target) {

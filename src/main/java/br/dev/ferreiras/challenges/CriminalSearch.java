@@ -13,7 +13,7 @@ public class CriminalSearch {
     Map<String, LinkedHashSet<String>> aliases = new HashMap<>();
 
     // Store criminals with original casing
-    aliases.put("Paul White", new LinkedHashSet<>(Arrays.asList("Roger Night", "Peter Llong Jr.")));
+    aliases.put("Paul White", new LinkedHashSet<>(Arrays.asList("Roger Night", "Peter Long Jr.")));
     aliases.put("Roger Fedexer", new LinkedHashSet<>(Arrays.asList("Rob Ford", "Pete Lord", "Roger McWire")));
     aliases.put("Paul White Jr.", new LinkedHashSet<>()); // Empty set
     aliases.put("Red Fortress", new LinkedHashSet<>(Arrays.asList("Roger Rabbit", "Ross Winter")));

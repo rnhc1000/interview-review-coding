@@ -12,11 +12,11 @@ public class BubbleSort {
 
     long start = System.nanoTime();
     int[] numbers = GenerateArraysOfNumbers.generateUniqueArrays(30);
-    logger.log(Level.INFO, "BEFORE BUBBLESORT: {0}  :::", Arrays.toString(numbers));
+    logger.log(Level.INFO, "BEFORE BUBBLE SORT: {0}  :::", Arrays.toString(numbers));
 
     int[] bubbleSorted = bubbleSort(numbers);
 
-    logger.log(Level.INFO, "AFTER BUBBLESORT: {0}  :::", Arrays.toString(bubbleSorted));
+    logger.log(Level.INFO, "AFTER BUBBLE SORT: {0}  :::", Arrays.toString(bubbleSorted));
     logger.log(Level.INFO, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
 

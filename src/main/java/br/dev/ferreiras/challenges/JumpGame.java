@@ -11,8 +11,6 @@ length at that position.
 
 Return true if you can reach the last index, or false otherwise.
 
-
-
 Example 1:
 
 Input: nums = [2,3,1,1,4]

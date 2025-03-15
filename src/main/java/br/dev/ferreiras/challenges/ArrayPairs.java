@@ -46,7 +46,7 @@ public class ArrayPairs {
 
     long start = System.nanoTime();
 //    int[] numbers = GenerateArraysOfNumbers.generateUniqueArraysOfPairs(100);
-    int[] numbers = { 9, 7, 9, 3, 9, 3 , 9};
+    int[] numbers = { 9, 7, 9, 3, 9, 3, 9, 7, 1};
     int response = unpaired(numbers);
 
     logger.log(Level.INFO, "::: NUMBERS: {0} ::::", Arrays.toString(numbers));
@@ -84,7 +84,7 @@ public class ArrayPairs {
     int unpaired = 0;
 
     for(int number : numbers) {
-      unpaired = unpaired  ^ number;
+      unpaired ^= number;
       logger.log(Level.INFO, "::: UNPAIRED(F): {0} ::::", unpaired);
     }
 
