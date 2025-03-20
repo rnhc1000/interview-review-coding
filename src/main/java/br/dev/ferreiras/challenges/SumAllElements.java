@@ -17,7 +17,7 @@ private static final Logger logger = Logger.getLogger(SumAllElements.class.getNa
     sum = addNumbers(list);
 
     logger.log(Level.INFO, "::: Sum of all numbers: -> {0} :::", sum);
-    logger.log(Level.WARNING, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start)/ 1_000_000);
+    logger.log(Level.WARNING, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
 
   private static int addNumbers(int[] numbers) {
