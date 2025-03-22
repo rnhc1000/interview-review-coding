@@ -52,7 +52,6 @@ public class ArrayFindKey {
                 }
                 j++;
             }
-
             i++;
             j = 0;
         }
