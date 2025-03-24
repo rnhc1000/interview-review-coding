@@ -1,6 +1,8 @@
 package br.dev.ferreiras.challenges;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,8 +16,8 @@ public class Anagram {
     String r = "over the brown fox  The quick     123456789    dog  jumps    lazy    dog       ";
 
     boolean isAnagram = anagramsCheck(s ,r);
-    logger.log(Level.INFO, "ARE ANAGRAMS?: {0} :::", isAnagram);
-    logger.log(Level.WARNING, "::: TIME SPENT spent: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
+    logger.log(Level.INFO, "ARE ANAGRAMS? {0} :::", isAnagram);
+    logger.log(Level.WARNING, "::: TIME SPENT: {0} ms ::: ", (System.nanoTime() - start) / 1_000_000);
   }
 
   private static boolean checkAnagrams(String s, String r) {
@@ -60,5 +62,33 @@ public class Anagram {
     logger.log(Level.INFO, "::: RCR: {0} :::", rcr);
 
     return scs.toString().contentEquals(rcr);
+  }
+
+  private static boolean isAnagram(String s, String r) {
+
+    Map<Character, Integer> mapOne = new HashMap<>();
+    Map<Character, Integer> mapTwo = new HashMap<>();
+
+    String regex = "\\s+";
+
+    s = s.replaceAll(regex, "").toLowerCase();
+    r = r.replaceAll(regex, "").toLowerCase();
+
+    for (char ch : s.toCharArray()) {
+      mapOne.put(ch, mapOne.getOrDefault(ch, 0) + 1);
+    }
+
+    for (char ch : r.toCharArray()) {
+      mapTwo.put(ch, mapTwo.getOrDefault(ch, 0) + 1);
+    }
+
+
+    return  mapOne.entrySet()
+            .stream()
+            .allMatch(
+                    element -> element.getValue()
+                            .equals(mapTwo.get(element.getKey()))
+            );
+
   }
 }
